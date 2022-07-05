@@ -1,0 +1,10 @@
+$demo-font-size: 1rem;
+$demo-color-gray: #666;
+
+.demo-with-page {
+  font-size: $demo-font-size;
+  color: $demo-color-gray;
+  padding: 5em;
+  margin: 0 auto;
+  max-width: 800px;
+}
