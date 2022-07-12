@@ -54,7 +54,10 @@ exports.render = function render(req, res) {
       staticMarkup: false,
     },
     navigationOptions: {
-      type: 'full',
+        type: 'internal',
+        internal: {
+          title: 'Paquetes en la agencia',
+        },
     },
   });
 };
