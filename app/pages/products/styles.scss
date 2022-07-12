@@ -1,0 +1,26 @@
+$products-font-size: 1rem;
+$products-color-gray: #666;
+$products-color-lightgray: #d3d3d3;
+
+.products {
+  font-size: $products-font-size;
+  color: $products-color-gray;
+  padding: 5em;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.products-images {
+  width: 100%;
+  display: inline-flex;
+}
+
+.products-images__img {
+  width: 100%;
+}
+
+.products-button {
+  display: inline-block;
+  margin-left: 1em;
+  background-color: $products-color-lightgray;
+}

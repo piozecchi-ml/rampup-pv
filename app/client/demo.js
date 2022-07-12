@@ -35,6 +35,8 @@ const i18n = new I18n({ translations });
 /**
  * Mount DemoView on client
  */
+console.log("hydrate demo");
+
 hydrate(
   <I18nProvider i18n={i18n}>
     <ImageProvider prefix={imagesPrefix}>

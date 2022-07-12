@@ -25,6 +25,17 @@
     "i18n:download": "i18n download"
   },
   "dependencies": {
+    "@andes/button": "7.16.2",
+    "@andes/checkbox": "7.16.2",
+    "@andes/checkbox-list": "7.16.2",
+    "@andes/datepicker": "7.16.2",
+    "@andes/dropdown": "7.16.2",
+    "@andes/form": "7.16.2",
+    "@andes/icons": "7.10.4",
+    "@andes/list": "7.16.2",
+    "@andes/modal": "7.16.2",
+    "@andes/tag": "7.16.2",
+    "@andes/textfield": "7.16.2",
     "nordic": "^7.0.0"
   },
   "devDependencies": {
