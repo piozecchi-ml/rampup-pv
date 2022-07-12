@@ -13,12 +13,6 @@ body{
   background-color: #ccc;
 }
 
-#content-container{
-  background-color: #fff;
-  margin: 1.5em;
-  padding: 1em;
-}
-
 /* HeaderComponent */
 #header-container{
   background-color: #fff;
@@ -53,6 +47,14 @@ body{
   font-size: 10pt;
   padding-bottom: 1em !important;
 }
+
+/* ContentComponent */
+#content-container{
+  background-color: #fff;
+  margin: 1.5em;
+  padding: 1em;
+}
+
 
 /* FiltersComponent */
 #filter-container{
@@ -96,4 +98,11 @@ body{
 /* DataComponent */
 #data-container{
   padding: 2em 0;
+}
+
+.message-no-data{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
 }

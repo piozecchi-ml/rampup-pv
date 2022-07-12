@@ -6,14 +6,42 @@ const {useState, useEffect} = require('react');
 
 const ContentComponent = ({ i18n, itemsList }) => {
   const [filteredItemList, setFilteredItemList] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [selectedServices, setSelectedServices] = useState([]);
 
   const onTextFilterChangeHandler = (e) => {
-    // Filtrar filteredItemList
+    let searchText = e.target.value;
+
+    let filtered = filterBySearchText(itemsList, searchText);
+    filtered = filterBySelectedServices(filtered, selectedServices);
+
+    setSearchText(searchText);
+    setFilteredItemList(filtered);
   };
 
   const onServiceFilterSelectionHandler = (selectedItems) => {
-    // Filtrar filteredItemList
+    let filtered = filterBySelectedServices(itemsList, selectedItems);
+    filtered = filterBySearchText(filtered, searchText);
+
+    setSelectedServices(selectedItems);
+    setFilteredItemList(filtered);
   };
+
+  function filterBySearchText(items, searchText){
+    if(searchText.length == 0) return items;
+
+    return items.filter( i => {
+      return i.id.includes(searchText);
+    });
+  }
+
+  function filterBySelectedServices(items, selectedServices){
+    if(selectedServices.length == 0) return items;
+
+    return items.filter( i => {
+      return selectedServices.includes(i.service_type);
+    });
+  }
 
   useEffect(() => {
     if(itemsList && itemsList.length > 0){
@@ -31,6 +59,20 @@ const ContentComponent = ({ i18n, itemsList }) => {
         <DataComponent 
           i18n={i18n}          
           itemsList={filteredItemList}/>
+
+          {itemsList.length == 0 &&
+            <div className="message-no-data">
+                No hay paquetes en la agencia
+            </div>
+          }
+
+          {itemsList.length > 0 &&
+            filteredItemList.length == 0 &&
+              <div className="message-no-data">
+                  No encontramos resultados para esta busqueda. Probá ingresando otro ID o cambiando de servicio en el filtro.
+              </div>
+          }
+
       </div>
   );
 }
