@@ -1,23 +1,36 @@
 const React = require('react')
 const PropTypes = require('prop-types');
-const Style = require('nordic/style');
+const ServiceTypes = require('../common/serviceEnum');
 
 const HeaderComponent = ({ i18n, data }) => {
 
+  const shipmentsReducer = (acc, actualValue) =>{
+    let serviceType = actualValue.service_type;
+
+    if( ! acc[serviceType] ){
+      acc[serviceType] = 1;
+    }else{
+      acc[serviceType]++;
+    } 
+
+    return acc;
+  };
+
+  const resumen = data.shipments.reduce(shipmentsReducer, {});
     
-    return (
+  return (
       <>
         <div id='header-container'>
-          <div id='packages'>33 paquetes</div>
+          <div id='packages'>{data.shipments.length} paquetes</div>
           <div id='services'>
-            <div>13<br/>Drop-off</div>
-            <div>10<br/>Pick-up</div>
-            <div>10<br/>Delivery</div>
+            <div>{resumen[ServiceTypes.DROP_OFF] || 0}<br/>Drop-off</div>
+            <div>{resumen[ServiceTypes.PICKUP] || 0}<br/>Pick-up</div>
+            <div>{resumen[ServiceTypes.DELIVERY] || 0}<br/>Delivery</div>
           </div>          
-          <div id="last-update">Última actualización: 23 de Junio 20:25 hs.</div>
+          <div id="last-update">{data.last_updated}</div>
         </div>
       </>      
-    );
+  );
 }
 
 HeaderComponent.propTypes = {
