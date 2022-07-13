@@ -2,7 +2,8 @@
  * Module dependencies
  */
 const React = require('react');
-const {useState, useEffect} = require('react');
+const { useState, useEffect } = require('react');
+const restclient = require('nordic/restclient')({ baseURL: 'api' });
 const PropTypes = require('prop-types');
 const Head = require('nordic/head');
 const MeliGA = require('nordic/analytics/meli-ga');
@@ -48,27 +49,18 @@ function View(props) {
     imagesPrefix,
   };
 
-  const [data, setData] = useState({shipments: []});
+  const [data, setData] = useState({ shipments: [] });
   const [selectedPackage, setSelectedPackage] = useState();
-  
-  useEffect(() => {
-    let fakeData = {
-      last_updated: '09/07/2022 19:46 hs',
-      shipments: [ 
-        { id: "121212121", service_type: 0, recipient: { id: "1111111", name: 'Juan Perez' }, status: 'Colectado', incoming_date: '07/07/2022 ', outgoing_date: '08/07/2022' },
-        { id: "454545454", service_type: 0, recipient: { id: "2222222", name: 'Roberto Rodriguez' }, status: 'Colectado', incoming_date: '08/07/2022 ', outgoing_date: '11/07/2022' },
-        { id: "787878787", service_type: 2, recipient: { id: "3333333", name: 'Pedro Reyes' }, status: 'No Colectado', incoming_date: '09/07/2022 ', outgoing_date: '10/07/2022' },
-      ]
-    };
-
-    setData(fakeData);
-  }, []);
 
   const hadlePackageSelected = (item) => {
     setSelectedPackage(item);
   };
 
-
+  useEffect(() => {
+    restclient.get('/form').then(res => {
+      setData(res.data);
+    });
+  }, []);
   return (
     <div className="form">
 
@@ -77,10 +69,8 @@ function View(props) {
         page="test"
       />
 
-      <MelidataTrack path="/form" event_data={{ demo: 'data' }} />    
+      <MelidataTrack path="/form" event_data={{ demo: 'data' }} />
 
-      { selectedPackage && 
-        <DetailComponent i18n={i18n} selectedPackage={selectedPackage} hadlePackageSelected={hadlePackageSelected}/> }
 
       <Head>
         <title>
@@ -88,13 +78,19 @@ function View(props) {
         </title>
       </Head>
 
-      { !selectedPackage && 
-        <>
-          <HeaderComponent data={data} i18n={i18n}/>
+      {selectedPackage
+        && <DetailComponent
+          i18n={i18n}
+          selectedPackage={selectedPackage}
+          hadlePackageSelected={hadlePackageSelected}
+        />}
 
-          <ContentComponent itemsList={data.shipments} i18n={i18n} hadlePackageSelected={hadlePackageSelected}/>
-        </>    
-      }
+      {!selectedPackage
+        && <>
+          <HeaderComponent data={data} i18n={i18n} />
+
+          <ContentComponent itemsList={data.shipments} i18n={i18n} hadlePackageSelected={hadlePackageSelected} />
+        </>}
 
       <Style href="form.css" />
       <Script>
@@ -105,7 +101,7 @@ function View(props) {
       </Script>
       <Script src="vendor.js" />
       <Script src="form.js" />
-      
+
     </div>
   );
 }

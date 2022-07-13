@@ -7,7 +7,7 @@ const { fetchSiteData, render } = require('./controller');
 /**
  * Routers
  */
- router.get('/', fetchSiteData, render);
+router.get('/', fetchSiteData, render);
 
 /**
  * Expose router

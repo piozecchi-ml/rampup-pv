@@ -20,7 +20,7 @@ exports.fetchSiteData = function fetchSiteData(req, res, next) {
 };
 
 /**
- * Render 
+ * Render
  */
 exports.render = function render(req, res) {
   /**
@@ -54,10 +54,10 @@ exports.render = function render(req, res) {
       staticMarkup: false,
     },
     navigationOptions: {
-        type: 'internal',
-        internal: {
-          title: 'Paquetes en la agencia',
-        },
+      type: 'internal',
+      internal: {
+        title: 'Paquetes en la agencia',
+      },
     },
   });
 };
