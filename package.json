@@ -34,6 +34,7 @@
     "@andes/icons": "7.10.4",
     "@andes/list": "7.16.2",
     "@andes/modal": "7.16.2",
+    "@andes/spinner": "7.16.2",
     "@andes/tag": "7.16.2",
     "@andes/textfield": "7.16.2",
     "nordic": "^7.0.0"
