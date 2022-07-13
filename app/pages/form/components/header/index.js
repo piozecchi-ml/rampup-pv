@@ -27,7 +27,7 @@ const HeaderComponent = ({ i18n, data }) => {
             <div>{resumen[ServiceTypes.PICKUP] || 0}<br/>Pick-up</div>
             <div>{resumen[ServiceTypes.DELIVERY] || 0}<br/>Delivery</div>
           </div>          
-          <div id="last-update">{data.last_updated}</div>
+          <div id="last-update">Ultima actualización: {data.last_updated}</div>
         </div>
       </>      
   );
