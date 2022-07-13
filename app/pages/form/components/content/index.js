@@ -4,7 +4,7 @@ const FiltersComponent = require('./filters');
 const DataComponent = require('./data');
 const {useState, useEffect} = require('react');
 
-const ContentComponent = ({ i18n, itemsList }) => {
+const ContentComponent = ({ i18n, itemsList, hadlePackageSelected }) => {
   const [filteredItemList, setFilteredItemList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [selectedServices, setSelectedServices] = useState([]);
@@ -58,7 +58,8 @@ const ContentComponent = ({ i18n, itemsList }) => {
 
         <DataComponent 
           i18n={i18n}          
-          itemsList={filteredItemList}/>
+          itemsList={filteredItemList}
+          hadlePackageSelected={hadlePackageSelected}/>
 
           {itemsList.length == 0 &&
             <div className="message-no-data">

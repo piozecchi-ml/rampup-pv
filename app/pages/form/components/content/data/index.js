@@ -4,9 +4,10 @@ const List = require('@andes/list');
 const { ListItem } = List;
 const ServiceNames = require('../../common/serviceNames')
 
-const DataComponent = ({ i18n, itemsList }) => {
+const DataComponent = ({ i18n, itemsList, hadlePackageSelected }) => {
     const items = itemsList.map( item => {
             return <ListItem
+              onClick={() => hadlePackageSelected(item)}
               key={item.id}
               chevron
               primary={item.id}
