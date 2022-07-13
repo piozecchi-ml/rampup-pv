@@ -1,6 +1,6 @@
 const React = require('react')
 const PropTypes = require('prop-types');
-const ServiceTypes = require('../common/serviceEnum');
+const ServiceTypes = require('../common/serviceTypes');
 
 const HeaderComponent = ({ i18n, data }) => {
 

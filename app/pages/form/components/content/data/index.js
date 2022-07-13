@@ -2,7 +2,7 @@ const React = require('react')
 const PropTypes = require('prop-types');
 const List = require('@andes/list');
 const { ListItem } = List;
-const ServiceNames = require('../../common/helper')
+const ServiceNames = require('../../common/serviceNames')
 
 const DataComponent = ({ i18n, itemsList }) => {
     const items = itemsList.map( item => {

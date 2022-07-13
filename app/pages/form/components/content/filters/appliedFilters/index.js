@@ -2,7 +2,7 @@ const React = require('react')
 const PropTypes = require('prop-types');
 const Tag = require('@andes/tag');
 const FeedbackPositive32 = require('@andes/icons/FeedbackPositive32');
-const ServiceNames = require('../../../common/helper')
+const ServiceNames = require('../../../common/serviceNames')
 
 const AppliedFiltersComponent = ({ i18n, selectedServices }) => {
     const serviceTags = selectedServices.map( service => {
