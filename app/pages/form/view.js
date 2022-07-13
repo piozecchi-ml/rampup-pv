@@ -15,6 +15,7 @@ const { injectI18n } = require('nordic/i18n');
 const ContentComponent = require('./components/content');
 const HeaderComponent = require('./components/header');
 const DetailComponent = require('./components/detail');
+const Spinner = require('@andes/spinner');
 
 /*
 data: {
@@ -49,6 +50,7 @@ function View(props) {
     imagesPrefix,
   };
 
+  const [loadingData, setLoadingData] = useState(false);
   const [data, setData] = useState({ shipments: [] });
   const [selectedPackage, setSelectedPackage] = useState();
 
@@ -57,10 +59,13 @@ function View(props) {
   };
 
   useEffect(() => {
+    setLoadingData(true);
     restclient.get('/form').then(res => {
       setData(res.data);
+      setLoadingData(false);
     });
   }, []);
+
   return (
     <div className="form">
 
@@ -78,19 +83,28 @@ function View(props) {
         </title>
       </Head>
 
-      {selectedPackage
-        && <DetailComponent
-          i18n={i18n}
-          selectedPackage={selectedPackage}
-          hadlePackageSelected={hadlePackageSelected}
-        />}
+      { loadingData && <Spinner
+          modifier="fullscreen"
+          size="large"
+          label="Aguarde un momento..."
+        /> }
 
-      {!selectedPackage
-        && <>
-          <HeaderComponent data={data} i18n={i18n} />
+      { !loadingData && 
+        <>
+          {selectedPackage
+            && <DetailComponent
+              i18n={i18n}
+              selectedPackage={selectedPackage}
+              hadlePackageSelected={hadlePackageSelected}
+            />}
 
-          <ContentComponent itemsList={data.shipments} i18n={i18n} hadlePackageSelected={hadlePackageSelected} />
-        </>}
+          {!selectedPackage
+            && <>
+              <HeaderComponent data={data} i18n={i18n} />
+
+              <ContentComponent itemsList={data.shipments} i18n={i18n} hadlePackageSelected={hadlePackageSelected} />
+            </>}
+        </>}      
 
       <Style href="form.css" />
       <Script>

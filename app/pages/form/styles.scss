@@ -7,45 +7,14 @@
 @import '~@andes/button/index';
 @import '~@andes/tag/index';
 @import '~@andes/list/index';
+@import '~@andes/spinner/index';
+
+@import 'components/header/styles.scss';
+@import 'components/content/data/styles.scss';
 
 /* GENERAL */
 body{
   background-color: #ccc;
-}
-
-/* HeaderComponent */
-#header-container{
-  background-color: #fff;
-  margin: 1.5em;
-  padding: 1em;
-}
-
-#header-container>div{
-  display: flex;  
-  justify-content: center;
-  padding: .6em 0;
-}
-
-#packages{
-  font-size: 20pt;
-}
-
-#services{
-  padding: 0;
-}
-
-#services>div{
-  flex: 1 1 auto;
-  text-align: center; 
-  border: 1px solid #ccc;
-  font-size: 12pt;
-  padding: .4em 0;
-}
-
-#last-update{
-  color: #ccc;
-  font-size: 10pt;
-  padding-bottom: 1em !important;
 }
 
 /* ContentComponent */
@@ -55,6 +24,12 @@ body{
   padding: 1em;
 }
 
+.message-no-data{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+}
 
 /* FiltersComponent */
 #filter-container{
@@ -93,18 +68,6 @@ body{
   background-color: #e6e9ed;
   border-color: #276ac4;
   padding: 0.5em 0.25em;
-}
-
-/* DataComponent */
-#data-container{
-  padding: 2em 0;
-}
-
-.message-no-data{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ccc;
 }
 
 /* DetailComponent */
