@@ -1,21 +1,33 @@
-const React = require('react')
+const React = require('react');
 const PropTypes = require('prop-types');
+const { useState, useEffect } = require('react');
 const FiltersComponent = require('./filters');
 const DataComponent = require('./data');
-const {useState, useEffect} = require('react');
 
 const ContentComponent = ({ i18n, itemsList, hadlePackageSelected }) => {
   const [filteredItemList, setFilteredItemList] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const [selectedServices, setSelectedServices] = useState([]);
 
-  const onTextFilterChangeHandler = (e) => {
-    let searchText = e.target.value;
+  function filterBySearchText(items, searchT) {
+    if (searchT.length === 0) return items;
 
-    let filtered = filterBySearchText(itemsList, searchText);
+    return items.filter(i => i.id.includes(searchT));
+  }
+
+  function filterBySelectedServices(items, selectedS) {
+    if (selectedS.length === 0) return items;
+
+    return items.filter(i => selectedS.includes(i.service_type));
+  }
+
+  const onTextFilterChangeHandler = (e) => {
+    const searchTextAux = e.target.value;
+
+    let filtered = filterBySearchText(itemsList, searchTextAux);
     filtered = filterBySelectedServices(filtered, selectedServices);
 
-    setSearchText(searchText);
+    setSearchText(searchTextAux);
     setFilteredItemList(filtered);
   };
 
@@ -27,61 +39,46 @@ const ContentComponent = ({ i18n, itemsList, hadlePackageSelected }) => {
     setFilteredItemList(filtered);
   };
 
-  function filterBySearchText(items, searchText){
-    if(searchText.length == 0) return items;
-
-    return items.filter( i => {
-      return i.id.includes(searchText);
-    });
-  }
-
-  function filterBySelectedServices(items, selectedServices){
-    if(selectedServices.length == 0) return items;
-
-    return items.filter( i => {
-      return selectedServices.includes(i.service_type);
-    });
-  }
 
   useEffect(() => {
-    if(itemsList && itemsList.length > 0){
+    if (itemsList && itemsList.length > 0) {
       setFilteredItemList(itemsList);
-    } 
+    }
   }, [itemsList]);
 
   return (
-      <div id="content-container">
-        <FiltersComponent 
-          i18n={i18n}
-          onTextFilterChangeHandler={onTextFilterChangeHandler}
-          onServiceFilterSelectionHandler={onServiceFilterSelectionHandler}/>
+    <div id="content-container">
+      <FiltersComponent
+        i18n={i18n}
+        onTextFilterChangeHandler={onTextFilterChangeHandler}
+        onServiceFilterSelectionHandler={onServiceFilterSelectionHandler}
+      />
 
-        <DataComponent 
-          i18n={i18n}          
-          itemsList={filteredItemList}
-          hadlePackageSelected={hadlePackageSelected}/>
+      <DataComponent
+        i18n={i18n}
+        itemsList={filteredItemList}
+        hadlePackageSelected={hadlePackageSelected}
+      />
 
-          {itemsList.length == 0 &&
-            <div className="message-no-data">
-                No hay paquetes en la agencia
-            </div>
-          }
+      {itemsList.length === 0
+        && <div className="message-no-data">
+          No hay paquetes en la agencia
+           </div>}
 
-          {itemsList.length > 0 &&
-            filteredItemList.length == 0 &&
-              <div className="message-no-data">
-                  No encontramos resultados para esta busqueda. Probá ingresando otro ID o cambiando de servicio en el filtro.
-              </div>
-          }
+      {itemsList.length > 0
+        && filteredItemList.length === 0
+        && <div className="message-no-data">
+          No encontramos resultados para esta busqueda. Probá ingresando otro ID o cambiando de servicio en el filtro.
+           </div>}
 
-      </div>
+    </div>
   );
-}
+};
 
 ContentComponent.propTypes = {
-    i18n: PropTypes.shape({
-      gettext: PropTypes.func.isRequired,
-    }).isRequired,
-  };
-  
-  module.exports = ContentComponent;
+  i18n: PropTypes.shape({
+    gettext: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+module.exports = ContentComponent;
