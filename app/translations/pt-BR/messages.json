@@ -2,5 +2,13 @@
   "Usuarios": [
     "Usuarios BR",
     "Usuarios BR"
-  ]
+  ],
+  "Detail.status": ["", "Doença"],
+  "Detail.service": ["", "Serviço"],
+  "Detail.entry": ["", "Entrada"],
+  "Detail.exit": ["", "saída"],
+  "Detail.dowload": ["", "Baixar mérito da coleção"],
+  "Detail.back": ["", "de volta"],
+  "Content.emptyAgency": ["", "Não há pacotes na agência"],
+  "Content.emptyFilters": ["", "Não encontramos resultados para esta pesquisa. Tente inserir outro ID ou alterar o serviço no filtro."]
 }

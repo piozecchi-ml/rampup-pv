@@ -1,3 +1,12 @@
 {
-  "Form.headText": [ "", "Titulo pagina form" ]
+  "Form.headText": [ "", "Titulo pagina form" ],
+  "Detail.status": ["", "Estado"],
+  "Detail.service": ["", "Servicio"],
+  "Detail.entry": ["", "Ingreso"],
+  "Detail.exit": ["", "Salida"],
+  "Detail.dowload": ["", "Descargar remito de colecta"],
+  "Detail.back": ["", "Regresar"],
+  "Content.emptyAgency": ["", "No hay paquetes en la agencia"],
+  "Content.emptyFilters": ["", "No encontramos resultados para esta búsqueda. Probá ingresando otro ID o cambiando de servicio en el filtro."]
+
 }

@@ -1,6 +1,7 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 const Button = require('@andes/button');
+const injectI18n = require('nordic/i18n/injectI18n');
 const ServiceNames = require('../common/serviceNames');
 
 const { ButtonText } = Button;
@@ -13,29 +14,29 @@ const DetailComponent = ({ i18n, selectedPackage, hadlePackageSelected }) => (
     <table>
       <tbody>
         <tr>
-          <td className="cell-header">Servicio</td>
+          <td className="cell-header">{i18n.gettext('Detail.service')}</td>
           <td className="cell-data">{ServiceNames[selectedPackage.service_type]}</td>
         </tr>
         <tr>
-          <td className="cell-header">Estado</td>
+          <td className="cell-header">{i18n.gettext('Detail.status')}</td>
           <td className="cell-data">{selectedPackage.status}</td>
         </tr>
         <tr>
-          <td className="cell-header">Ingreso</td>
+          <td className="cell-header">{i18n.gettext('Detail.entry')}</td>
           <td className="cell-data">{selectedPackage.incoming_date}</td>
         </tr>
         <tr>
-          <td className="cell-header">Salida</td>
+          <td className="cell-header">{i18n.gettext('Detail.exit')}</td>
           <td className="cell-data">{selectedPackage.outgoing_date}</td>
         </tr>
         <tr>
-          <td className="cell-dowload" colSpan={2}>Descargar remito de colecta</td>
+          <td className="cell-dowload" colSpan={2}>{i18n.gettext('Detail.dowload')}</td>
         </tr>
       </tbody>
     </table>
 
     <Button onClick={() => hadlePackageSelected(null)}>
-      <ButtonText>Regresar</ButtonText>
+      <ButtonText>{i18n.gettext('Detail.back')}</ButtonText>
     </Button>
   </div>
 );
@@ -46,4 +47,4 @@ DetailComponent.propTypes = {
   }).isRequired,
 };
 
-module.exports = DetailComponent;
+module.exports = injectI18n(DetailComponent);
