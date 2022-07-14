@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@andes/button": "7.16.2",
+    "@andes/card": "7.16.2",
     "@andes/checkbox": "7.16.2",
     "@andes/checkbox-list": "7.16.2",
     "@andes/datepicker": "7.16.2",
@@ -34,6 +35,7 @@
     "@andes/icons": "7.10.4",
     "@andes/list": "7.16.2",
     "@andes/modal": "7.16.2",
+    "@andes/popper": "7.16.2",
     "@andes/spinner": "7.16.2",
     "@andes/tag": "7.16.2",
     "@andes/textfield": "7.16.2",

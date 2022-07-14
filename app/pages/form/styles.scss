@@ -8,17 +8,19 @@
 @import '~@andes/tag/index';
 @import '~@andes/list/index';
 @import '~@andes/spinner/index';
-
+@import '~@andes/popper/index';
+@import 'components/detail/styles.scss';
 @import 'components/header/styles.scss';
 @import 'components/content/data/styles.scss';
-
+@import 'components/content/filters/styles.scss';
 /* GENERAL */
 body{
-  background-color: #ccc;
+  background-color: #EDEDED;
 }
 
 /* ContentComponent */
 #content-container{
+  border-radius: 6px;
   background-color: #fff;
   margin: 1.5em;
   padding: 1em;
@@ -28,11 +30,11 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ccc;
+  color: #EDEDED;
 }
 
 /* FiltersComponent */
-#filter-container{
+.filter-container{
   display: flex;  
 }
 
@@ -68,44 +70,4 @@ body{
   background-color: #e6e9ed;
   border-color: #276ac4;
   padding: 0.5em 0.25em;
-}
-
-/* DetailComponent */
-
-#detail-container{
-  background-color: #fff;
-  margin: 1.5em;
-  padding: 2em;
-}
-
-#recipient-id{
-  font-weight: bold;
-  font-size: 12pt;
-}
-
-#recipient-name{
-  font-size: 12pt;
-}
-
-table{
-  border-spacing: 0;
-  border: 1px solid #ccc;
-  margin: 1.5em 0;
-
-}
-
-td{
-  border: 1px solid #ccc;
-}
-
-table *{
-  padding: 0.5em 3em;
-}
-
-.cell-header{  
-  color: #ccc;
-  font-weight: bold;
-}
-
-.cell-data{
 }

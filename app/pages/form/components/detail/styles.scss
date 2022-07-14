@@ -1,0 +1,41 @@
+.detail-container {
+    background-color: #fff;
+    margin: 1.5em;
+    padding: 2em;
+
+    #recipient-id {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    #recipient-name {
+        font-size: 20px;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid rgba(0, 0, 0, 0.101961);
+        margin: 1.5em 0;
+
+    }
+
+    td {
+        border: 1px solid rgba(0, 0, 0, 0.101961);
+        border-collapse: collapse;
+    }
+
+    table * {
+        padding: 0.5em 3em;
+    }
+
+    .cell-header {
+        color: #8C8C8C;
+    }
+    .cell-dowload {
+        color: #3483FA;
+        font-size: 16px;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}

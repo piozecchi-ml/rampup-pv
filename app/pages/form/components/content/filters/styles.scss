@@ -1,0 +1,22 @@
+.filter-container {
+    position: relative;
+
+    &-custom-popper {
+        width: 200px;
+        position: absolute;
+        right: 21px;
+        top: 56px;
+        border-radius: 5px;
+        box-shadow: 2px 4px 3px 0px rgb(0 0 0 / 10%);
+
+        p {
+            margin-left: 22px;
+            margin-bottom: 2px;
+        }
+    }
+}
+
+.filter-button:hover {
+    color: #fff;
+    background-color: #fff;
+}

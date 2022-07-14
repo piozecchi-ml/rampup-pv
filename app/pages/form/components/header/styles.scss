@@ -1,5 +1,6 @@
 /* HeaderComponent */
 #header-container{
+    border-radius: 6px;
     background-color: #fff;
     margin: 1.5em;
     padding: 1em;
@@ -17,12 +18,32 @@
   
   #services{
     padding: 0;
+    position: relative;
   }
   
+  .customBorder1::before {
+    content: "";
+    position: absolute;
+    right: 112px;
+    top: 19px;
+    height: 50%;
+    width: 1px;
+    border-right: 1px solid #EDEDED;
+  }
+  .customBorder2::before {
+    content: "";
+    position: absolute;
+    left: 107px;
+    top: 19px;
+    height: 50%;
+    width: 1px;
+    border-right: 1px solid #EDEDED;
+  }
   #services>div{
     flex: 1 1 auto;
     text-align: center; 
-    border: 1px solid #ccc;
+    border-top: 1px solid #EDEDED;
+    border-bottom: 1px solid #EDEDED;
     font-size: 12pt;
     padding: .4em 0;
   }

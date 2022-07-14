@@ -22,13 +22,12 @@ const HeaderComponent = ({ i18n, data }) => {
       <div id="header-container">
         <div id="packages">{data.shipments.length} paquetes</div>
         <div id="services">
-          <div>{resumen[ServiceTypes.DROP_OFF] || 0}<br />Drop-off</div>
-          <div>{resumen[ServiceTypes.PICKUP] || 0}<br />Pick-up</div>
+          <div className="customBorder1">{resumen[ServiceTypes.DROP_OFF] || 0}<br />Drop-off</div>
+          <div className="customBorder2">{resumen[ServiceTypes.PICKUP] || 0}<br />Pick-up</div>
           <div>{resumen[ServiceTypes.DELIVERY] || 0}<br />Delivery</div>
         </div>
         <div id="last-update">Ultima actualización: {data.last_updated}</div>
       </div>
-      <div id="last-update">{data.last_updated}</div>
     </>
   );
 };

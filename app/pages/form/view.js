@@ -12,11 +12,10 @@ const Script = require('nordic/script');
 const Style = require('nordic/style');
 const serialize = require('serialize-javascript');
 const { injectI18n } = require('nordic/i18n');
+const Spinner = require('@andes/spinner');
 const ContentComponent = require('./components/content');
 const HeaderComponent = require('./components/header');
 const DetailComponent = require('./components/detail');
-const Spinner = require('@andes/spinner');
-
 /*
 data: {
   last_updated,
@@ -82,15 +81,14 @@ function View(props) {
           {i18n.gettext('Form.headText')}
         </title>
       </Head>
+      {loadingData && <Spinner
+        modifier="fullscreen"
+        size="large"
+        label="Aguarde un momento..."
+      />}
 
-      { loadingData && <Spinner
-          modifier="fullscreen"
-          size="large"
-          label="Aguarde un momento..."
-        /> }
-
-      { !loadingData && 
-        <>
+      {!loadingData
+        && <>
           {selectedPackage
             && <DetailComponent
               i18n={i18n}
@@ -103,8 +101,8 @@ function View(props) {
               <HeaderComponent data={data} i18n={i18n} />
 
               <ContentComponent itemsList={data.shipments} i18n={i18n} hadlePackageSelected={hadlePackageSelected} />
-            </>}
-        </>}      
+               </>}
+        </>}
 
       <Style href="form.css" />
       <Script>

@@ -62,14 +62,14 @@ const ContentComponent = ({ i18n, itemsList, hadlePackageSelected }) => {
 
       {itemsList.length === 0
         && <div className="message-no-data">
-          No hay paquetes en la agencia
-           </div>}
+          {i18n.gettext('No hay paquetes en la agencia')}
+        </div>}
 
       {itemsList.length > 0
         && filteredItemList.length === 0
         && <div className="message-no-data">
-          No encontramos resultados para esta busqueda. Probá ingresando otro ID o cambiando de servicio en el filtro.
-           </div>}
+          {i18n.gettext('No encontramos resultados para esta busqueda. Probá ingresando otro ID o cambiando de servicio en el filtro.')}
+        </div>}
 
     </div>
   );

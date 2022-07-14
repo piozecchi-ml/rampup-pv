@@ -11,9 +11,8 @@ const DataComponent = ({ i18n, itemsList, hadlePackageSelected }) => {
     key={item.id}
     chevron
     primary={item.id}
-    // secondary={ServiceNames[item.service_type]}
+    secondary={ServiceNames[item.service_type]}
   />));
-
   return (
     <div id="data-container">
 
