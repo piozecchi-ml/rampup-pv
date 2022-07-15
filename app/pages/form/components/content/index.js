@@ -9,6 +9,7 @@ const ContentComponent = ({ i18n, itemsList, hadlePackageSelected }) => {
   const [searchText, setSearchText] = useState('');
   const [selectedServices, setSelectedServices] = useState([]);
 
+  const allFilterSelected = selectedServices.length > 0 && searchText.length > 0;
   function filterBySearchText(items, searchT) {
     if (searchT.length === 0) return items;
 
@@ -64,11 +65,19 @@ const ContentComponent = ({ i18n, itemsList, hadlePackageSelected }) => {
         && <div className="message-no-data">
           {i18n.gettext('Content.emptyAgency')}
         </div>}
+      
+      {itemsList.length > 0
+        && filteredItemList.length === 0
+        && allFilterSelected
+        && <div className="message-no-data">
+          {i18n.gettext('Content.emptyFilters')}
+        </div>}
 
       {itemsList.length > 0
         && filteredItemList.length === 0
+        && !allFilterSelected
         && <div className="message-no-data">
-          {i18n.gettext('Content.emptyFilters')}
+          {i18n.gettext('Content.packageNotFound')}
         </div>}
 
     </div>

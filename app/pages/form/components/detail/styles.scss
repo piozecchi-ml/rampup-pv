@@ -9,6 +9,7 @@
     }
 
     #recipient-name {
+        font-weight: 100;
         font-size: 20px;
     }
 
@@ -17,7 +18,9 @@
         border-spacing: 0;
         border: 1px solid rgba(0, 0, 0, 0.101961);
         margin: 1.5em 0;
-
+        border-radius: 6px;
+        border-style: hidden;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.101961);
     }
 
     td {
@@ -26,11 +29,12 @@
     }
 
     table * {
-        padding: 0.5em 3em;
+        padding: 1em 3em;
     }
 
     .cell-header {
         color: #8C8C8C;
+        font-weight: 100;
     }
     .cell-dowload {
         color: #3483FA;

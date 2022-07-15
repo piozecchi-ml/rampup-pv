@@ -13,73 +13,9 @@
 @import 'components/header/styles.scss';
 @import 'components/content/data/styles.scss';
 @import 'components/content/filters/styles.scss';
+@import 'components/content/styles.scss';
+@import 'components/content/filters/components/appliedFilters/styles.scss';
 /* GENERAL */
-body{
+body {
   background-color: #EDEDED;
-}
-
-/* ContentComponent */
-#content-container{
-  border-radius: 6px;
-  background-color: #fff;
-  margin: 1.5em;
-  padding: 1em;
-}
-
-.message-no-data{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #EDEDED;
-}
-
-/* FiltersComponent */
-.filter-container{
-  display: flex;  
-}
-
-.andes-form-control__bottom{
-  display: none !important;
-}
-
-.andes-form-control--textfield {
-  flex-grow: 1;
-}
-
-.filter-button{
-  background-color: #fff;
-  margin-top: 12px;
-}
-
-.filter-icon{
-  color: #000;
-  flex: 1 1 auto;
-}
-
-/* AppliedFiltersComponent */
-#tag-container{
-  display: flex;  
-  margin-top: 1em;
-}
-
-#tag-container > * {
-  flex-direction: row-reverse;
-  margin-right: 1em;
-}
-
-.service-tag{
-  background-color: rgba(65, 137, 230, 0.1);
-  border-color: #2968C8;
-  padding: 0.5em 0.25em;
-  .andes-tag__avatar-icon-container {
-    background-color: transparent;
-    svg {
-      path {
-        fill: #2968C8;
-      }
-    }
-  }
-  .andes-tag__label {
-    color: #2968C8;
-  }
 }

@@ -7,6 +7,7 @@
   "Detail.dowload": ["", "Descargar remito de colecta"],
   "Detail.back": ["", "Regresar"],
   "Content.emptyAgency": ["", "No hay paquetes en la agencia"],
+  "Content.packageNotFound": ["", "Este paquete no se encuentra en la agencia"],
   "Content.emptyFilters": ["", "No encontramos resultados para esta búsqueda. Probá ingresando otro ID o cambiando de servicio en el filtro."]
 
 }

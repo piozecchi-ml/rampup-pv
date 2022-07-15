@@ -1,4 +1,33 @@
 /* DataComponent */
-#data-container{
+#data-container {
     padding: 2em 0;
+
+    .andes-list__item {
+        height: 50px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.101961);
+
+        .andes-list__item-text {
+            display: flex;
+
+            .andes-list__item-primary {
+                padding-right: 5px;
+            }
+
+            .andes-list__item-secondary {
+
+                margin-top: 0;
+                padding-left: 5px;
+                border-left: 1px solid rgba(0, 0, 0, 0.101961);
+            }
+        }
+
+        .andes-list__item-second-column {
+            align-items: center;
+            .andes-list__item-chevron {
+                margin-top: 0;
+                align-self: auto;
+            }
+        }
+    }
+
 }

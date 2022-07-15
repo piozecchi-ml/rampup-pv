@@ -1,0 +1,30 @@
+/* AppliedFiltersComponent */
+#tag-container {
+    display: flex;
+    margin-top: 1em;
+  }
+  
+  #tag-container>* {
+    flex-direction: row-reverse;
+    margin-right: 1em;
+  }
+  
+  .service-tag {
+    background-color: rgba(65, 137, 230, 0.1);
+    border-color: #2968C8;
+    padding: 0.5em 0.25em;
+  
+    .andes-tag__avatar-icon-container {
+      background-color: transparent;
+  
+      svg {
+        path {
+          fill: #2968C8;
+        }
+      }
+    }
+  
+    .andes-tag__label {
+      color: #2968C8;
+    }
+  }

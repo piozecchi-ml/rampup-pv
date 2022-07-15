@@ -10,5 +10,6 @@
   "Detail.dowload": ["", "Baixar mérito da coleção"],
   "Detail.back": ["", "de volta"],
   "Content.emptyAgency": ["", "Não há pacotes na agência"],
+  "Content.packageNotFound": ["", "Este pacote não está na agência"],
   "Content.emptyFilters": ["", "Não encontramos resultados para esta pesquisa. Tente inserir outro ID ou alterar o serviço no filtro."]
 }

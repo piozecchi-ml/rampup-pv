@@ -21,7 +21,7 @@ const FiltersComponent = ({ i18n, onTextFilterChangeHandler, onServiceFilterSele
 
   const serviceFilterSelectionHandler = (event, selectedValues, itemDetails) => {
     setSelectedServices(selectedValues);
-    onServiceFilterSelectionHandler(selectedValues.map(selected => parseInt(selected)));
+    onServiceFilterSelectionHandler(selectedValues.map(selected => parseInt(selected, 10)));
   };
 
 
