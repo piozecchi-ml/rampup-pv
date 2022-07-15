@@ -39,6 +39,7 @@
     "@andes/spinner": "7.16.2",
     "@andes/tag": "7.16.2",
     "@andes/textfield": "7.16.2",
+    "moment": "2.29.4",
     "nordic": "^7.0.0"
   },
   "devDependencies": {

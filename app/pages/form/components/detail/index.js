@@ -1,10 +1,12 @@
 const React = require('react');
 const PropTypes = require('prop-types');
-const Button = require('@andes/button');
+// const Button = require('@andes/button');
 const injectI18n = require('nordic/i18n/injectI18n');
+const moment = require('moment');
 const ServiceNames = require('../common/serviceNames');
 
-const { ButtonText } = Button;
+moment.locale('es');
+// const { ButtonText } = Button;
 
 const DetailComponent = ({ i18n, selectedPackage, hadlePackageSelected }) => (
   <div className="detail-container">
@@ -23,21 +25,26 @@ const DetailComponent = ({ i18n, selectedPackage, hadlePackageSelected }) => (
         </tr>
         <tr>
           <td className="cell-header">{i18n.gettext('Detail.entry')}</td>
-          <td className="cell-data">{selectedPackage.incoming_date}</td>
+          <td className="cell-data">{moment(selectedPackage.incoming_date, 'DD/MM/YYYY').format('DD / MMMM')}</td>
         </tr>
         <tr>
           <td className="cell-header">{i18n.gettext('Detail.exit')}</td>
-          <td className="cell-data">{selectedPackage.outgoing_date}</td>
+          <td className="cell-data">{moment(selectedPackage.outgoing_date, 'DD/MM/YYYY').format('DD / MMMM')}</td>
         </tr>
         <tr>
-          <td className="cell-dowload" colSpan={2}>{i18n.gettext('Detail.dowload')}</td>
+          <td
+            className="cell-dowload"
+            colSpan={2}
+            onClick={() => hadlePackageSelected(null)}
+          >{i18n.gettext('Detail.dowload')}
+          </td>
         </tr>
       </tbody>
     </table>
 
-    <Button onClick={() => hadlePackageSelected(null)}>
+    {/* <Button onClick={() => hadlePackageSelected(null)}>
       <ButtonText>{i18n.gettext('Detail.back')}</ButtonText>
-    </Button>
+    </Button> */}
   </div>
 );
 
